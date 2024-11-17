@@ -292,7 +292,7 @@ struct MpegTsPacketizedElementaryStream {
         _ previousReceivedPresentationTimeStamp: CMTime?,
         _ formatDescription: CMFormatDescription?
     ) -> (CMSampleBuffer, CMTime, CMTime)? {
-        convertNalUnitsFromAnnexBToAVCC(&data)
+        convertNalUnitsToAVCC(&data)
         let blockBuffer = data.makeBlockBuffer()
         var sampleSizes = [blockBuffer?.dataLength ?? 0]
         return makeSampleBuffer(

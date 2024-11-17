@@ -13,7 +13,7 @@ func addNalUnitStartCodes(_ data: inout Data) {
 }
 
 // Should unescape as well? Why can length be 3 or 4 bytes? Correct?
-func convertNalUnitsFromAnnexBToAVCC(_ data: inout Data) {
+func convertNalUnitsToAVCC(_ data: inout Data) {
     parseNalUnits(data) { startCodeIndex, startCodeLength, length in
         data.replaceSubrange(
             startCodeIndex ..< startCodeIndex + startCodeLength,
